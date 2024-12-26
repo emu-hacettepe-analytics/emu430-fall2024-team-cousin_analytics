@@ -3,24 +3,34 @@ title: "Team Cousin Analytics"
 sidebar: false 
 ---
 
-This is our project webpage.
+-   This is our project webpage.
 
-Please stay tuned to follow our project activities.
+-   Please stay tuned to follow our project activities.
+  
+-   This is our template.
 
-This is our template.
+![](images/logo.png)
 
 # Team Members
 
-1.  Emir Gök
+-   [Emir Gök](https://emu-hacettepe-analytics.github.io/emu430-fall2024-emirrgok/)
 
-2.  Mustafa Melih Dağ
+-   [Mustafa Melih Dağ](https://emu-hacettepe-analytics.github.io/emu430-fall2024-melihdag1/)
 
-3.  Berk Bayar
+-   [Berk Bayar](https://emu-hacettepe-analytics.github.io/emu430-fall2024-berkbyr/)
 
-4.  Ulaş Utku Bedel
+-   [Ulaş Utku Bedel](https://emu-hacettepe-analytics.github.io/emu430-fall2024-ulasbedel/)
 
-5.  Vehbi Enis Üçer
+-   [Vehbi Enis Üçer](https://emu-hacettepe-analytics.github.io/emu430-fall2024-enisucer/)
+
 
 # Project Topic
 
+# Video Link
+
+[Video Adı](https://video linki)
+
 # Data Set
+
+# Key Takeaways
+

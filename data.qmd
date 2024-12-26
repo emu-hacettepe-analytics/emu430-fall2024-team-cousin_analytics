@@ -1,5 +1,28 @@
 ---
 title: "Data"
+format:
+  html:
+    code-fold: true
+    code-tools: true
 ---
 
-Data source: xxx
+# Importing Data Set
+
+Data source: [TUIK](https://data.tuik.gov.tr/)
+
+```{r}
+#| code-fold: true
+#| output: false
+library(readxl)
+library(tidyverse)
+library(rvest)
+library(stringr)
+library(knitr)
+data <- read_excel("C:/Users/melih/Documents/GitHub/emu430-fall2024-team-cousin_analytics/data/bina_kat_yas.xlsx")
+save(data, file = "cousinanalytics.RData")
+```
+
+Download the data set (Building_Ages_FloorNumbers) : [cousinanalytics.RData](https://github.com/emu-hacettepe-analytics/emu430-fall2024-team-cousin_analytics/raw/master/cousinanalytics.RData)
+
+# Data Explanation
+
