@@ -1,49 +1,9 @@
 ---
 title: "Analysis"
-format:
-  html:
-    code-tools: true
-    code-fold: true
 ---
 
-# Data Analysis
+About this site
 
 ```{r}
-# Install and load required libraries
-install.packages(c("ggplot2", "readxl", "dplyr", "knitr"))
-
-# Load the libraries
-library(ggplot2)
-library(readxl)
-library(dplyr)
-library(knitr)
-
-```
-
-# Ball Possesion vs Rankings
-
-```{r}
-# Define team-specific color palette
-team_colors <- c(
-  "fenerbahce" = "blue",
-  "galatasaray" = "red",
-  "besiktas" = "black",  # Updated to black
-  "trabzonspor" = "maroon"
-)
-
-# Create scatter plot with regression line
-ggplot(df, aes(x = avg_shoots, y = avg_goals_scored, color = Team)) +
-  geom_point(size = 3) +  # Data points
-  geom_smooth(method = "lm", se = FALSE) +  # Regression line
-  scale_color_manual(values = team_colors) +  # Team colors
-  labs(
-    title = "Relationship Between Shots and Goals",
-    x = "Average Shots",
-    y = "Average Goals Scored",
-    color = "Team"
-  ) +
-  theme_minimal()
-
-# Print a message
-print("This is a scatter plot showing the relationship between shots and goals scored.")
+1 + 1
 ```

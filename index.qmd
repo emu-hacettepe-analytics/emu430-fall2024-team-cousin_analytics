@@ -1,52 +1,24 @@
 ---
-title: "Team Cousin Analytics"
+title: "Team XXX"
 sidebar: false 
 ---
 
--   This is our project webpage.
+This is our project webpage.
 
--   Please stay tuned to follow our project activities.
+Please stay tuned to follow our project activities.
 
--   This is our template.
-
-![](images/logo.png)
+This is our template.
 
 # Team Members
 
--   [Emir Gök](https://emu-hacettepe-analytics.github.io/emu430-fall2024-emirrgok/)
+1.  [Edin_Džeko](https://tr.wikipedia.org/wiki/Edin_D%C5%BEeko)
 
--   [Mustafa Melih Dağ](https://emu-hacettepe-analytics.github.io/emu430-fall2024-melihdag1/)
+2.  [Dušan Tadić](https://tr.wikipedia.org/wiki/Du%C5%A1an_Tadi%C4%87)
 
--   [Berk Bayar](https://emu-hacettepe-analytics.github.io/emu430-fall2024-berkbyr/)
+3.  [Frederico Rodrigues de Paula Santos](https://tr.wikipedia.org/wiki/Fred_(1993_do%C4%9Fumlu_futbolcu))
 
--   [Ulaş Utku Bedel](https://emu-hacettepe-analytics.github.io/emu430-fall2024-ulasbedel/)
+4.  [Sebastian Szymański](https://tr.wikipedia.org/wiki/Sebastian_Szyma%C5%84ski)
 
--   [Vehbi Enis Üçer](https://emu-hacettepe-analytics.github.io/emu430-fall2024-enisucer/)
-
-# Our Project
-
-**Title:** Analysis and Visualization of Building Characteristics During the February 6 Earthquake in Turkey
-
-This project focuses on analyzing and visualizing building and housing characteristics in Turkey, with a particular emphasis on critical variables such as building age and height. These factors are crucial for understanding structural vulnerabilities and assessing risks, especially in light of the devastating February 6 earthquakes in Turkey. By leveraging this comprehensive dataset, the project aims to explore the relationship between these characteristics and the earthquake's impact, providing valuable insights for risk assessment, disaster preparedness, and future urban planning to enhance resilience.
-
-# Video
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZFMJRNqOrIs?si=NvjPo8nZvmp_i_L0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-
-</iframe>
+# Project Topic
 
 # Data Set
-
-\[Building and Housing Characteristics Survey, 2021\](allthedatas.xls)
-
-# Key Takeaways
-
--   **Building Age and Height:** Older and taller buildings, especially those built before 2000, were highly vulnerable during the February 6 earthquakes.
-
--   **Regional Disparities:** Alluvial soil and high construction density increased risk in affected areas.
-
--   **Building Codes:** The 2018 Turkish Earthquake Code improved standards, but enforcement gaps remain.
-
--   **Structural Monitoring:** SHM systems are essential for tracking high-rise building conditions and are now mandatory.
-
--   **Post-Earthquake Assessment:** Over 311,000 buildings were severely damaged, revealing weaknesses in the building stock.
