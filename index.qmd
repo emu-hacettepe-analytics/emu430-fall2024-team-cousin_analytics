@@ -38,3 +38,13 @@ This project focuses on analyzing and visualizing building and housing character
 # Data Set
 
 # Key Takeaways
+
+-   **Building Age and Height:** Older and taller buildings, especially those built before 2000, were highly vulnerable during the February 6 earthquakes.
+
+-   **Regional Disparities:** Alluvial soil and high construction density increased risk in affected areas.
+
+-   **Building Codes:** The 2018 Turkish Earthquake Code improved standards, but enforcement gaps remain.
+
+-   **Structural Monitoring:** SHM systems are essential for tracking high-rise building conditions and are now mandatory.
+
+-   **Post-Earthquake Assessment:** Over 311,000 buildings were severely damaged, revealing weaknesses in the building stock.
