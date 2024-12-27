@@ -8,21 +8,36 @@ format:
 
 # Importing Data Set
 
-Data source: [TUIK](https://data.tuik.gov.tr/)
+Data source: [Footystats](https://footystats.org/) [Transfermarkt](https://www.transfermarkt.com.tr/) [Sofascore](https://www.sofascore.com/)
 
 ```{r}
 #| code-fold: true
 #| output: false
+# Load required libraries
 library(readxl)
 library(tidyverse)
 library(rvest)
 library(stringr)
 library(knitr)
-data <- read_excel("C:/Users/melih/Documents/GitHub/emu430-fall2024-team-cousin_analytics/data/bina_kat_yas.xlsx")
+
+# Correct the file path (use double backslashes or forward slashes)
+data <- read_excel("C:/Users/USER/Desktop/merged_superlig_team_performance.xlsx")
+
+# Save the data as an RData file
 save(data, file = "cousinanalytics.RData")
 ```
 
-Download the data set (Building_Ages_FloorNumbers) : [cousinanalytics.RData](https://github.com/emu-hacettepe-analytics/emu430-fall2024-team-cousin_analytics/raw/master/cousinanalytics.RData)
+```         
+{r}
+library(dplyr)
+library(readxl)
+library(knitr)
+
+# Read the data
+data <- read_excel("C:/Users/USER/Desktop/merged_superlig_team_performance.xlsx")
+
+# Display the entire data set
+kable(data, caption = "Complete Superlig Team Performance Data")
+```
 
 # Data Explanation
-

@@ -25,7 +25,7 @@
     "href": "data.html",
     "title": "Data",
     "section": "",
-    "text": "Importing Data Set\nData source: TUIK\n\n\nCode\nlibrary(readxl)\nlibrary(tidyverse)\nlibrary(rvest)\nlibrary(stringr)\nlibrary(knitr)\ndata &lt;- read_excel(\"C:/Users/melih/Documents/GitHub/emu430-fall2024-team-cousin_analytics/data/bina_kat_yas.xlsx\")\nsave(data, file = \"cousinanalytics.RData\")\n\n\nDownload the data set (Building_Ages_FloorNumbers) : cousinanalytics.RData\n\n\nData Explanation\n\n\n\n\n\n\n Back to top"
+    "text": "Importing Data Set\nData source: Footystats Transfermarkt Sofascore\n\n\nCode\n# Load required libraries\nlibrary(readxl)\nlibrary(tidyverse)\nlibrary(rvest)\nlibrary(stringr)\nlibrary(knitr)\n\n# Correct the file path (use double backslashes or forward slashes)\ndata &lt;- read_excel(\"C:/Users/USER/Desktop/merged_superlig_team_performance.xlsx\")\n\n# Save the data as an RData file\nsave(data, file = \"cousinanalytics.RData\")\n\n\n{r}\nlibrary(dplyr)\nlibrary(readxl)\nlibrary(knitr)\n\n# Read the data\ndata &lt;- read_excel(\"C:/Users/USER/Desktop/merged_superlig_team_performance.xlsx\")\n\n# Display the entire data set\nkable(data, caption = \"Complete Superlig Team Performance Data\")\n\n\nData Explanation\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "data.html#why-this-data-set",
