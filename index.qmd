@@ -9,6 +9,8 @@ Please stay tuned to follow our project activities.
 
 This is our template.
 
+![](images/a789f455-b8a9-4d6b-8f27-dac9e673fc0c.webp){width="393"}
+
 # Team Members
 
 1.  [Emir Gök](https://emu-hacettepe-analytics.github.io/emu430-fall2024-emirrgok/)
@@ -38,7 +40,7 @@ This project analyzes how key performance indicators—such as average shots, av
 
 # Data Set
 
-[Turkish Super League Stats for top 4 teams, The period between 2015-2016 and 2023-2024](./superligstats.xlsx)
+[Turkish Super League Stats for top 4 teams, The period between 2015-2016 and 2023-2024](./superligstats.xlsx),,
 
 # Key Takeaways
 

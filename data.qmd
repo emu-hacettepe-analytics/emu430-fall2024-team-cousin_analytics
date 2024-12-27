@@ -29,7 +29,7 @@ Our data consists of information from the last 9 years, including the following 
 
 This dataset provides a comprehensive overview of key performance indicators and squad financial data for the past nine seasons.
 
-Data source: [Transfermarkt](https://www.transfermarkt.com.tr/), [Sofascore](#0){style="font-size: 11pt;"} and [Footystats](#0){style="font-size: 11pt;"}
+Data source: [Transfermarkt](https://www.transfermarkt.com.tr/), [Sofascore](https://www.sofascore.com/){style="font-size: 11pt;"} and [Footystats](https://footystats.org/){style="font-size: 11pt;"}
 
 ## Importing and Preprocessing
 
