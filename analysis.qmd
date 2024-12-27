@@ -2,8 +2,95 @@
 title: "Analysis"
 ---
 
-About this site
+# Average Goals Conceded vs Rankings
 
 ```{r}
-1 + 1
+ggplot(df, aes(x = avg_goals_conceded, y = rankings, color = Team)) +
+  geom_point(size = 3) + # Scatter points
+  geom_smooth(method = "lm", se = FALSE) + # Regression line
+  scale_color_manual(values = team_colors) + # Team colors
+  scale_y_reverse() + # Reverse the y-axis
+  labs(
+    title = "Relationship Between Average Goals Conceded and League Rankings",
+    x = "Average Goals Conceded",
+    y = "League Ranking (Reversed)",
+    color = "Team"
+  ) +
+  theme_minimal()
 ```
+
+![](images/avggoals ranking.jpg)
+
+# Is the goals conceded more important or goals scored on rankings ?
+
+```{r}
+
+install.packages("car")
+library(car)
+
+avPlots(model)
+model <- lm(rankings ~ avg_goals_scored + avg_goals_conceded, data = df)
+summary(model)
+
+cor_scored <- cor(df$avg_goals_scored, df$rankings)
+cor_conceded <- cor(df$avg_goals_conceded, df$rankings)
+
+```
+
+![](images/e68dd5d3-ce34-4dd2-9abb-bf4046432cb2.png)
+
+**Correlation Summary:**
+
+1.  **Goals Scored (-0.7267)**: Strong negative correlation, indicating that more goals scored lead to better rankings (lower values). This suggests offensive performance significantly impacts rankings.
+
+2.  **Goals Conceded (0.6880)**: Strong positive correlation, meaning that conceding more goals leads to poorer rankings (higher values). Defensive performance also plays a key role in rankings.
+
+3.  **Comparison**: Goals scored (-0.7267) show a slightly stronger influence on rankings than goals conceded (0.6880). While offensive performance has a greater impact, defensive performance remains crucial.
+
+# Average Ball Possesion's impact on Rankings
+
+```{r}
+ggplot(df, aes(x = Season, y = rankings, color = avg_ball_possession, label = Team)) +
+  geom_point(size = 8, alpha = 0.7) + # Bubbles representing teams
+  geom_text(aes(label = Team), size = 3, vjust = -1) + # Team names
+  scale_y_reverse() + # Reverse y-axis for rankings
+  scale_color_gradient(low = "yellow", high = "purple", name = "Ball Possession (%)") + # Gradient for possession
+  labs(
+    title = "Average Ball Possession and League Rankings Over Seasons",
+    x = "Season",
+    y = "League Ranking (Reversed)"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1), # Rotate x-axis labels
+    aspect.ratio = 0.7 # Adjust aspect ratio
+  )
+```
+
+![](images/WhatsApp Görsel 2024-12-27 saat 13.38.55_bb9c6bc4.jpg)
+
+## Correlation between ball possession and rankings
+
+```{r}
+# Topa sahip olma yüzdesi ve sıralama arasındaki korelasyon
+correlation_possession_rankings <- cor(df$avg_ball_possession, df$rankings, use = "complete.obs")
+
+# Korelasyonu yazdır
+print(paste("Correlation between ball possession and rankings:", correlation_possession_rankings))
+```
+
+Correlation between ball possession and rankings: -0.317401286701104
+
+The negative value indicates that as the ball possession percentage increases, the ranking improves (lower numerical values represent better rankings). This suggests that higher ball possession is associated with better league performance, but the relationship is not very strong. Weak Correlation:
+
+A correlation value of -0.3174 shows a weak relationship between the two variables. Ball possession alone does not significantly determine league rankings. Conclusion:
+
+While ball possession plays a role in improving rankings, other factors such as goals scored, goals conceded, and defensive or offensive efficiency likely have a stronger influence on the overall performance.
+
+**Summary:**
+
+-   **Negative Correlation (-0.3174)**: Higher ball possession is linked to better rankings, but the relationship is weak.
+
+-   **Weak Influence**: Ball possession alone has limited impact on rankings compared to factors like goals scored and conceded.
+
+-   **Conclusion**: Ball possession contributes to performance but is less significant than other metrics.
