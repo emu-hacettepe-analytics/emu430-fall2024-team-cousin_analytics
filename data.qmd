@@ -54,7 +54,7 @@ merged_data <- lapply(sheet_names, function(sheet) {
 }) %>% bind_rows()
 ```
 
-[Turkish Super League Stats for top 4 teams, The period between 2015-2016 and 2023-2024](./merged_superlig_team_performance.xlsx)
+[Merged Turkish Super League Stats for top 4 teams, The period between 2015-2016 and 2023-2024](./merged_superlig_team_performance.xlsx)
 
 ## Exploratory Data Analysis
 
