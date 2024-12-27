@@ -40,7 +40,7 @@ This project analyzes how key performance indicators—such as average shots, av
 
 [Turkish Super League Stats for top 4 teams, The period between 2015-2016 and 2023-2024](./superligstats.xlsx)
 
-# Key Takeaways:
+# Key Takeaways
 
 -   **Most Important Factors**: **Goals scored** and **goals conceded** are the most important factors for determining rankings. A strong attacking ability (scoring goals) combined with a solid defense (conceding fewer goals) are the key to maintaining or improving a team’s league position.
 

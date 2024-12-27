@@ -160,10 +160,12 @@ window.Quarto = {
   <li><a href="#squad-market-values-impact-on-rankings" id="toc-squad-market-values-impact-on-rankings" class="nav-link" data-scroll-target="#squad-market-values-impact-on-rankings">Squad Market Values impact on Rankings</a></li>
   <li><a href="#correlation-between-squad-market-value-and-rankings" id="toc-correlation-between-squad-market-value-and-rankings" class="nav-link" data-scroll-target="#correlation-between-squad-market-value-and-rankings">Correlation between Squad Market Value and Rankings</a></li>
   </ul></li>
-  <li><a href="#comparing-correlations-average-goals-scored-average-goals-conceded-average-ball-possession-squad-market-values-vs-rankings" id="toc-comparing-correlations-average-goals-scored-average-goals-conceded-average-ball-possession-squad-market-values-vs-rankings" class="nav-link" data-scroll-target="#comparing-correlations-average-goals-scored-average-goals-conceded-average-ball-possession-squad-market-values-vs-rankings">Comparing Correlations Average Goals Scored, Average Goals Conceded, Average Ball Possession, Squad Market Values vs Rankings</a></li>
+  <li><a href="#comparing-correlations-average-goals-scored-average-goals-conceded-average-ball-possession-squad-market-values-vs-rankings" id="toc-comparing-correlations-average-goals-scored-average-goals-conceded-average-ball-possession-squad-market-values-vs-rankings" class="nav-link" data-scroll-target="#comparing-correlations-average-goals-scored-average-goals-conceded-average-ball-possession-squad-market-values-vs-rankings">Comparing Correlations Average Goals Scored, Average Goals Conceded, Average Ball Possession, Squad Market Values vs Rankings</a>
+  <ul class="collapse">
   <li><a href="#print-the-correlations" id="toc-print-the-correlations" class="nav-link" data-scroll-target="#print-the-correlations">Print the correlations</a>
   <ul class="collapse">
   <li><a href="#which-factor-is-the-most-important" id="toc-which-factor-is-the-most-important" class="nav-link" data-scroll-target="#which-factor-is-the-most-important"><strong>Which Factor is the Most Important?</strong></a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
@@ -267,9 +269,8 @@ window.Quarto = {
 <section id="comparing-correlations-average-goals-scored-average-goals-conceded-average-ball-possession-squad-market-values-vs-rankings" class="level1">
 <h1>Comparing Correlations Average Goals Scored, Average Goals Conceded, Average Ball Possession, Squad Market Values vs Rankings</h1>
 <p>`# Calculate correlations cor_goals_scored &lt;- cor(df<span class="math inline">\(avg_goals_scored, df\)</span>rankings, use = “complete.obs”) cor_goals_conceded &lt;- cor(df<span class="math inline">\(avg_goals_conceded, df\)</span>rankings, use = “complete.obs”) cor_ball_possession &lt;- cor(df<span class="math inline">\(avg_ball_possession, df\)</span>rankings, use = “complete.obs”) cor_market_values &lt;- cor(df<span class="math inline">\(squad_market_values, df\)</span>rankings, use = “complete.obs”)</p>
-</section>
-<section id="print-the-correlations" class="level1">
-<h1>Print the correlations</h1>
+<section id="print-the-correlations" class="level2">
+<h2 class="anchored" data-anchor-id="print-the-correlations">Print the correlations</h2>
 <p>cat(“Correlation between goals scored and rankings:”, cor_goals_scored, “”) cat(“Correlation between goals conceded and rankings:”, cor_goals_conceded, “”) cat(“Correlation between ball possession and rankings:”, cor_ball_possession, “”) cat(“Correlation between squad market values and rankings:”, cor_market_values, “”)`</p>
 <ol type="1">
 <li><p><strong>Goals Scored and Rankings</strong>:</p>
@@ -300,6 +301,7 @@ window.Quarto = {
 <li><p><strong>Ball Possession</strong> and <strong>Squad Market Value</strong>: These factors have a weaker impact on rankings compared to goals scored and conceded.</p></li>
 </ol></li>
 </ul>
+</section>
 </section>
 </section>
 <section id="conclusion" class="level1">

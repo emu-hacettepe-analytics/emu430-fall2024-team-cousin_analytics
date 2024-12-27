@@ -16,22 +16,7 @@ title: "Analysis"
 
 # Average Ball Possession vs Goals Scored
 
-`ggplot(df, aes(x = avg_ball_possession, y = avg_goals_scored, color = Team)) +
-  geom_point(size = 5, alpha = 0.7) + # Scatter points
-  geom_smooth(method = "lm", se = FALSE, linetype = "dashed", color = "black") + # Trendline
-  scale_color_manual(values = c(
-    "fenerbahce" = "blue",
-    "galatasaray" = "red",
-    "besiktas" = "black",
-    "trabzonspor" = "maroon"
-  )) + # Custom team colors
-  labs(
-    title = "Relationship Between Ball Possession and Goals Scored",
-    x = "Average Ball Possession (%)",
-    y = "Average Goals Scored",
-    color = "Team"
-  ) +
-  theme_minimal()`
+`ggplot(df, aes(x = avg_ball_possession, y = avg_goals_scored, color = Team)) +   geom_point(size = 5, alpha = 0.7) + # Scatter points   geom_smooth(method = "lm", se = FALSE, linetype = "dashed", color = "black") + # Trendline   scale_color_manual(values = c(     "fenerbahce" = "blue",     "galatasaray" = "red",     "besiktas" = "black",     "trabzonspor" = "maroon"   )) + # Custom team colors   labs(     title = "Relationship Between Ball Possession and Goals Scored",     x = "Average Ball Possession (%)",     y = "Average Goals Scored",     color = "Team"   ) +   theme_minimal()`
 
 ![](images/topgol.jpg)
 
@@ -89,7 +74,7 @@ While ball possession plays a role in improving rankings, other factors such as 
 
 # Can a bag full of money score a goal?
 
-"Never seen a bag of money score a goal." - **Johan Cruyff**
+"I've have never seen a bag of money score a goal." - **Johan Cruyff**
 
 ![](images/Oefeninterland_Nederland_tegen_Argentinië_4-1;_nr._6,_7_Cruyff,_kop.jpg)
 
@@ -117,17 +102,11 @@ While higher squad market values are linked to better performance, other factors
 
 # Comparing Correlations Average Goals Scored, Average Goals Conceded, Average Ball Possession, Squad Market Values vs Rankings
 
-`# Calculate correlations
-cor_goals_scored <- cor(df$avg_goals_scored, df$rankings, use = "complete.obs")
-cor_goals_conceded <- cor(df$avg_goals_conceded, df$rankings, use = "complete.obs")
-cor_ball_possession <- cor(df$avg_ball_possession, df$rankings, use = "complete.obs")
-cor_market_values <- cor(df$squad_market_values, df$rankings, use = "complete.obs")
+\`# Calculate correlations cor_goals_scored \<- cor(df$avg_goals_scored, df$rankings, use = "complete.obs") cor_goals_conceded \<- cor(df$avg_goals_conceded, df$rankings, use = "complete.obs") cor_ball_possession \<- cor(df$avg_ball_possession, df$rankings, use = "complete.obs") cor_market_values \<- cor(df$squad_market_values, df$rankings, use = "complete.obs")
 
-# Print the correlations
-cat("Correlation between goals scored and rankings:", cor_goals_scored, "\n")
-cat("Correlation between goals conceded and rankings:", cor_goals_conceded, "\n")
-cat("Correlation between ball possession and rankings:", cor_ball_possession, "\n")
-cat("Correlation between squad market values and rankings:", cor_market_values, "\n")`
+## Print the correlations
+
+cat("Correlation between goals scored and rankings:", cor_goals_scored, "\n") cat("Correlation between goals conceded and rankings:", cor_goals_conceded, "\n") cat("Correlation between ball possession and rankings:", cor_ball_possession, "\n") cat("Correlation between squad market values and rankings:", cor_market_values, "\n")\`
 
 1.  **Goals Scored and Rankings**:
 
