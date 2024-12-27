@@ -8,39 +8,34 @@ format:
 
 # Exploratory Data Analysis
 
-## Plots
+## Ball Possession vs Goals Scored
 
 ```{r}
-#| output: false
-library(plotrix)
-library(tidyverse) 
-library(dslabs)
-library(readxl)
-library(dplyr)
+# Required library
 library(ggplot2)
-library(viridis)
-library(hrbrthemes)
-yıkılan_binalar <- read_excel("C:/Users/melih/Documents/GitHub/emu430-fall2024-team-cousin_analytics/data/yıkılan_binalar.xlsx")
-bina_yasi <- read_excel("C:/Users/melih/Documents/GitHub/emu430-fall2024-team-cousin_analytics/data/bina_kat_yas.xlsx",sheet  = "BinaInsaYili")
+
+# Team-specific color palette
+team_colors <- c(
+  "fenerbahce" = "blue",
+  "galatasaray" = "red",
+  "besiktas" = "white",
+  "trabzonspor" = "maroon"
+)
+
+# Create scatter plot
+ggplot(df, aes(x = avg_shoots, y = avg_goals_scored, color = Team)) +
+  geom_point(size = 3) + # Data points
+  geom_smooth(method = "lm", se = FALSE) + # Regression line
+  scale_color_manual(values = team_colors) + # Team colors
+  labs(
+    title = "Relationship Between Shots and Goals",
+    x = "Average Shots",
+    y = "Average Goals Scored",
+    color = "Team"
+  ) +
+  theme_minimal()
 ```
 
-```{r}
-cities <- c("Adana","Adıyaman","Diyarbakır","Elazığ","Gaziantep","Maraş","Malatya","Hatay","Kilis","Osmaniye","Şanlıurfa")
-numbers = as.numeric(yıkılan_binalar$Yıkık_Bina)
-barplot(numbers, names.arg = cities, col = "skyblue", main = "Number of Demolishing Buildings About to City", ylab = "Yıkık Bina",las = 2)
+\`
 
-slices <- c(as.numeric(yıkılan_binalar$Yıkık_Bina))
-lbls <- cities
-pct <- round(slices / sum(slices) * 100)
-lbls <- paste(lbls, pct) # Yüzdeleri etiketlere ekleyin
-lbls <- paste(lbls, "%", sep = "") # Etiketlere % işaretini ekleyin
-
-# 3D Pie Chart oluşturun
-pie3D(slices, labels = lbls, explode = 0.1, col = rainbow(length(lbls)),
-      main = "Pie Chart of Demolishing Buildings", labelcex = 0.7, theta = 1)
-
-building_ages = c(sum(as.numeric(bina_yasi$`1980_ve_öncesi`)),sum(as.numeric(bina_yasi$`1981_ve_2000_arası`)),sum(as.numeric(bina_yasi$`2001_ve_sonrası`)),sum(as.numeric(bina_yasi$`Bilinmeyen`)))
-ages = c("1980 ve öncesi","1981-2000","2001 ve sonrası","Bilinmeyen")
-barplot(building_ages, names.arg = ages, col = "skyblue", main = "Number of Buildings About to Age", ylab = "Number")
-```   
-
+![](http://127.0.0.1:17181/graphics/be83dfd0-8d9c-407f-82c7-3d176e705d1c.png)
