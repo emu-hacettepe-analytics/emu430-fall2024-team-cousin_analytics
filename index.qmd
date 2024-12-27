@@ -1,5 +1,5 @@
 ---
-title: "Team Cousin Analytics"
+title: "Team Cousins Analytics"
 sidebar: false 
 ---
 
