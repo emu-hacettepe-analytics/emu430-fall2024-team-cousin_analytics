@@ -6,7 +6,7 @@ sidebar: false
 -   This is our project webpage.
 
 -   Please stay tuned to follow our project activities.
-  
+
 -   This is our template.
 
 ![](images/logo.png)
@@ -23,14 +23,16 @@ sidebar: false
 
 -   [Vehbi Enis Üçer](https://emu-hacettepe-analytics.github.io/emu430-fall2024-enisucer/)
 
+# Our Project
 
-# Project Topic
+**Title:** Analysis and Visualization of Building Characteristics During the February 6 Earthquake in Turkey
+
+This project focuses on analyzing and visualizing building and housing characteristics in Turkey, with a particular emphasis on critical variables such as building age and height. These factors are crucial for understanding structural vulnerabilities and assessing risks, especially in light of the devastating February 6 earthquakes in Turkey. By leveraging this comprehensive dataset, the project aims to explore the relationship between these characteristics and the earthquake's impact, providing valuable insights for risk assessment, disaster preparedness, and future urban planning to enhance resilience.
 
 # Video Link
 
-[Video Adı](https://video linki)
+[Video Adı](https://video%20linki)
 
 # Data Set
 
 # Key Takeaways
-
