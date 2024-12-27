@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -103,6 +69,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -149,7 +144,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#average-goals-conceded-vs-rankings" id="toc-average-goals-conceded-vs-rankings" class="nav-link active" data-scroll-target="#average-goals-conceded-vs-rankings">Average Goals Conceded vs Rankings</a></li>
+  <li><a href="#average-ball-possession-vs-goals-scored" id="toc-average-ball-possession-vs-goals-scored" class="nav-link" data-scroll-target="#average-ball-possession-vs-goals-scored">Average Ball Possession vs Goals Scored</a></li>
+  <li><a href="#is-the-goals-conceded-more-important-or-goals-scored-on-rankings" id="toc-is-the-goals-conceded-more-important-or-goals-scored-on-rankings" class="nav-link" data-scroll-target="#is-the-goals-conceded-more-important-or-goals-scored-on-rankings">Is the goals conceded more important or goals scored on rankings ?</a></li>
+  <li><a href="#average-ball-possesions-impact-on-rankings" id="toc-average-ball-possesions-impact-on-rankings" class="nav-link" data-scroll-target="#average-ball-possesions-impact-on-rankings">Average Ball Possesion’s impact on Rankings</a>
+  <ul class="collapse">
+  <li><a href="#correlation-between-ball-possession-and-rankings" id="toc-correlation-between-ball-possession-and-rankings" class="nav-link" data-scroll-target="#correlation-between-ball-possession-and-rankings">Correlation between ball possession and rankings</a></li>
+  </ul></li>
+  <li><a href="#can-a-bag-full-of-money-score-a-goal" id="toc-can-a-bag-full-of-money-score-a-goal" class="nav-link" data-scroll-target="#can-a-bag-full-of-money-score-a-goal">Can a bag full of money score a goal?</a>
+  <ul class="collapse">
+  <li><a href="#squad-market-values-impact-on-rankings" id="toc-squad-market-values-impact-on-rankings" class="nav-link" data-scroll-target="#squad-market-values-impact-on-rankings">Squad Market Values impact on Rankings</a></li>
+  <li><a href="#correlation-between-squad-market-value-and-rankings" id="toc-correlation-between-squad-market-value-and-rankings" class="nav-link" data-scroll-target="#correlation-between-squad-market-value-and-rankings">Correlation between Squad Market Value and Rankings</a></li>
+  </ul></li>
+  <li><a href="#comparing-correlations-average-goals-scored-average-goals-conceded-average-ball-possession-squad-market-values-vs-rankings" id="toc-comparing-correlations-average-goals-scored-average-goals-conceded-average-ball-possession-squad-market-values-vs-rankings" class="nav-link" data-scroll-target="#comparing-correlations-average-goals-scored-average-goals-conceded-average-ball-possession-squad-market-values-vs-rankings">Comparing Correlations Average Goals Scored, Average Goals Conceded, Average Ball Possession, Squad Market Values vs Rankings</a></li>
+  <li><a href="#print-the-correlations" id="toc-print-the-correlations" class="nav-link" data-scroll-target="#print-the-correlations">Print the correlations</a>
+  <ul class="collapse">
+  <li><a href="#which-factor-is-the-most-important" id="toc-which-factor-is-the-most-important" class="nav-link" data-scroll-target="#which-factor-is-the-most-important"><strong>Which Factor is the Most Important?</strong></a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -177,15 +195,119 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>About this site</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
+<section id="average-goals-conceded-vs-rankings" class="level1">
+<h1>Average Goals Conceded vs Rankings</h1>
+<p><code>ggplot(df, aes(x = avg_goals_conceded, y = rankings, color = Team)) + geom_point(size = 3) +</code></p>
+<p><code># Scatter points geom_smooth(method = "lm", se = FALSE) +</code></p>
+<p><code># Regression line scale_color_manual(values = team_colors) + # Team colors scale_y_reverse() +</code></p>
+<p><code># Reverse the y-axis labs( title = "Relationship Between Average Goals Conceded and League Rankings", x = "Average Goals Conceded", y = "League Ranking (Reversed)", color = "Team" ) + &nbsp;theme_minimal()</code></p>
+<p><img src="images/avggoals ranking.jpg" class="img-fluid"></p>
+</section>
+<section id="average-ball-possession-vs-goals-scored" class="level1">
+<h1>Average Ball Possession vs Goals Scored</h1>
+<p><code>ggplot(df, aes(x = avg_ball_possession, y = avg_goals_scored, color = Team)) +   geom_point(size = 5, alpha = 0.7) + # Scatter points   geom_smooth(method = "lm", se = FALSE, linetype = "dashed", color = "black") + # Trendline   scale_color_manual(values = c(     "fenerbahce" = "blue",     "galatasaray" = "red",     "besiktas" = "black",     "trabzonspor" = "maroon"   )) + # Custom team colors   labs(     title = "Relationship Between Ball Possession and Goals Scored",     x = "Average Ball Possession (%)",     y = "Average Goals Scored",     color = "Team"   ) +   theme_minimal()</code></p>
+<p><img src="images/topgol.jpg" class="img-fluid"></p>
+</section>
+<section id="is-the-goals-conceded-more-important-or-goals-scored-on-rankings" class="level1">
+<h1>Is the goals conceded more important or goals scored on rankings ?</h1>
+<p><code>install.packages("car") library(car)</code></p>
+<p><code>avPlots(model) model &lt;- lm(rankings ~ avg_goals_scored + avg_goals_conceded, data = df) summary(model)</code></p>
+<p><code>cor_scored &lt;- cor(df$avg_goals_scored, df$rankings) cor_conceded &lt;- cor(df$avg_goals_conceded, df$rankings)</code></p>
+<p><img src="images/e68dd5d3-ce34-4dd2-9abb-bf4046432cb2.png" class="img-fluid"></p>
+<p><strong>Correlation Summary:</strong></p>
+<ol type="1">
+<li><p><strong>Goals Scored (-0.7267)</strong>: Strong negative correlation, indicating that more goals scored lead to better rankings (lower values). This suggests offensive performance significantly impacts rankings.</p></li>
+<li><p><strong>Goals Conceded (0.6880)</strong>: Strong positive correlation, meaning that conceding more goals leads to poorer rankings (higher values). Defensive performance also plays a key role in rankings.</p></li>
+<li><p><strong>Comparison</strong>: Goals scored (-0.7267) show a slightly stronger influence on rankings than goals conceded (0.6880). While offensive performance has a greater impact, defensive performance remains crucial.</p></li>
+</ol>
+</section>
+<section id="average-ball-possesions-impact-on-rankings" class="level1">
+<h1>Average Ball Possesion’s impact on Rankings</h1>
+<p><code>ggplot(df, aes(x = Season, y = rankings, color = avg_ball_possession, label = Team)) + geom_point(size = 8, alpha = 0.7) +</code></p>
+<p><code># Bubbles representing teams geom_text(aes(label = Team), size = 3, vjust = -1) +</code></p>
+<p><code># Team names scale_y_reverse() + # Reverse y-axis for rankings scale_color_gradient(low = "yellow", high = "purple", name = "Ball Possession (%)") +</code></p>
+<p><code># Gradient for possession labs( title = "Average Ball Possession and League Rankings Over Seasons", x = "Season", y = "League Ranking (Reversed)" ) + theme_minimal() + theme( axis.text.x = element_text(angle = 45, hjust = 1), # Rotate x-axis labels aspect.ratio = 0.7 # Adjust aspect&nbsp;ratio &nbsp;&nbsp;)</code></p>
+<p><img src="images/WhatsApp Görsel 2024-12-27 saat 13.38.55_bb9c6bc4.jpg" class="img-fluid"></p>
+<section id="correlation-between-ball-possession-and-rankings" class="level2">
+<h2 class="anchored" data-anchor-id="correlation-between-ball-possession-and-rankings">Correlation between ball possession and rankings</h2>
+<p><code>correlation_possession_rankings &lt;- cor(df$avg_ball_possession, df$rankings, use = "complete.obs")</code></p>
+<p><code>print(paste("Correlation between ball possession and rankings:", correlation_possession_rankings))</code></p>
+<p>Correlation between ball possession and rankings: -0.317401286701104</p>
+<p>The negative value indicates that as the ball possession percentage increases, the ranking improves (lower numerical values represent better rankings). This suggests that higher ball possession is associated with better league performance, but the relationship is not very strong. Weak Correlation:</p>
+<p>A correlation value of -0.3174 shows a weak relationship between the two variables. Ball possession alone does not significantly determine league rankings. Conclusion:</p>
+<p>While ball possession plays a role in improving rankings, other factors such as goals scored, goals conceded, and defensive or offensive efficiency likely have a stronger influence on the overall&nbsp;performance.</p>
+<p><strong>Summary:</strong></p>
+<ul>
+<li><p><strong>Negative Correlation (-0.3174)</strong>: Higher ball possession is linked to better rankings, but the relationship is weak.</p></li>
+<li><p><strong>Weak Influence</strong>: Ball possession alone has limited impact on rankings compared to factors like goals scored and conceded.</p></li>
+<li><p><strong>Conclusion</strong>: Ball possession contributes to performance but is less significant than other metrics.</p></li>
+</ul>
+</section>
+</section>
+<section id="can-a-bag-full-of-money-score-a-goal" class="level1">
+<h1>Can a bag full of money score a goal?</h1>
+<p>“Never seen a bag of money score a goal.” - <strong>Johan Cruyff</strong></p>
+<p><img src="images/Oefeninterland_Nederland_tegen_Argentinië_4-1;_nr._6,_7_Cruyff,_kop.jpg" class="img-fluid"></p>
+<section id="squad-market-values-impact-on-rankings" class="level2">
+<h2 class="anchored" data-anchor-id="squad-market-values-impact-on-rankings">Squad Market Values impact on Rankings</h2>
+<p><code>install.packages("ggrepel")</code></p>
+<p><code>library(ggrepel)</code></p>
+<p><code>filtered_df &lt;- df[df$rankings &lt;= 10, ]</code></p>
+<p><code>ggplot(filtered_df, aes(x = Season, y = rankings, size = squad_market_values, color = Team)) + geom_point(alpha = 0.7) + # Bubble chart geom_text_repel(aes(label = Team), size = 3) + # Prevent overlapping labels scale_y_reverse(breaks = 1:10) + # Reverse y-axis and set breaks from 1 to 10 scale_size_continuous(range = c(3, 10), name = "Squad Market Value (€)") + # Adjust bubble size scale_color_manual(values = c( "fenerbahce" = "blue", "galatasaray" = "red", "besiktas" = "black", "trabzonspor" = "maroon" )) + # Custom team colors labs( title = "Seasonal League Rankings and Squad Market Values (Top 10)", x = "Season", y = "League Ranking (Reversed)", size = "Squad Market Value (€)", color = "Team" ) + theme_minimal() + theme( axis.text.x = element_text(angle = 45, hjust = 1), # Rotate x-axis labels for readability aspect.ratio = 0.7 # Adjust aspect&nbsp;ratio &nbsp;&nbsp;)</code></p>
+<p><img src="images/market.jpg" class="img-fluid"></p>
+</section>
+<section id="correlation-between-squad-market-value-and-rankings" class="level2">
+<h2 class="anchored" data-anchor-id="correlation-between-squad-market-value-and-rankings">Correlation between Squad Market Value and Rankings</h2>
+<p><code>correlation_market_values_rankings &lt;- cor(df$squad_market_values, df$rankings, use = "complete.obs")</code></p>
+<p><code>print(paste("Correlation between squad market values and rankings:", correlation_market_values_rankings))</code></p>
+<p>The correlation between squad market values and rankings is <strong>-0.2581</strong>, indicating a <strong>weak negative correlation</strong>. As squad market values increase, rankings tend to improve, but the relationship is not strong.</p>
+<p>While higher squad market values are linked to better performance, other factors like team strategy, player performance, and injuries are likely more significant. This also aligns with <strong>Johan Cruyff’s</strong> quote: <em>“I’ve never seen a bag of money score a goal.”</em> This suggests that while financial resources can support success, they do not guarantee it without proper execution on the field.</p>
+</section>
+</section>
+<section id="comparing-correlations-average-goals-scored-average-goals-conceded-average-ball-possession-squad-market-values-vs-rankings" class="level1">
+<h1>Comparing Correlations Average Goals Scored, Average Goals Conceded, Average Ball Possession, Squad Market Values vs Rankings</h1>
+<p>`# Calculate correlations cor_goals_scored &lt;- cor(df<span class="math inline">\(avg_goals_scored, df\)</span>rankings, use = “complete.obs”) cor_goals_conceded &lt;- cor(df<span class="math inline">\(avg_goals_conceded, df\)</span>rankings, use = “complete.obs”) cor_ball_possession &lt;- cor(df<span class="math inline">\(avg_ball_possession, df\)</span>rankings, use = “complete.obs”) cor_market_values &lt;- cor(df<span class="math inline">\(squad_market_values, df\)</span>rankings, use = “complete.obs”)</p>
+</section>
+<section id="print-the-correlations" class="level1">
+<h1>Print the correlations</h1>
+<p>cat(“Correlation between goals scored and rankings:”, cor_goals_scored, “”) cat(“Correlation between goals conceded and rankings:”, cor_goals_conceded, “”) cat(“Correlation between ball possession and rankings:”, cor_ball_possession, “”) cat(“Correlation between squad market values and rankings:”, cor_market_values, “”)`</p>
+<ol type="1">
+<li><p><strong>Goals Scored and Rankings</strong>:</p>
+<ul>
+<li>A strong negative correlation (<code>-0.72</code>) indicates that scoring more goals is strongly associated with better rankings.</li>
+</ul></li>
+<li><p><strong>Goals Conceded and Rankings</strong>:</p>
+<ul>
+<li>A positive correlation (<code>0.68</code>) shows that conceding fewer goals significantly improves rankings. Defense plays a crucial role in team performance.</li>
+</ul></li>
+<li><p><strong>Ball Possession and Rankings</strong>:</p>
+<ul>
+<li>A weaker negative correlation (<code>-0.31</code>) suggests that ball possession has a limited impact on rankings.</li>
+</ul></li>
+<li><p><strong>Squad Market Values and Rankings</strong>:</p>
+<ul>
+<li>A weak negative correlation (<code>-0.26</code>) indicates that higher squad market values are associated with better rankings, but the relationship is not strong.</li>
+</ul></li>
+</ol>
+<section id="which-factor-is-the-most-important" class="level3">
+<h3 class="anchored" data-anchor-id="which-factor-is-the-most-important"><strong>Which Factor is the Most Important?</strong></h3>
+<ul>
+<li><p>The factor with the <strong>strongest correlation (highest absolute value)</strong> has the most significant impact on rankings.</p></li>
+<li><p><strong>Expected Outcome</strong>:</p>
+<ol type="1">
+<li><p><strong>Goals Scored</strong>: Likely to be the most important factor for better rankings.</p></li>
+<li><p><strong>Goals Conceded</strong>: Defense is crucial and ranks second.</p></li>
+<li><p><strong>Ball Possession</strong> and <strong>Squad Market Value</strong>: These factors have a weaker impact on rankings compared to goals scored and conceded.</p></li>
+</ol></li>
+</ul>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>In summary, achieving a top ranking in a football league is primarily determined by a combination of <strong>offensive efficiency</strong> (scoring goals) and <strong>defensive strength</strong> (conceding fewer goals). While <strong>ball possession</strong> and <strong>squad market value</strong> contribute to a team’s overall success, their effect on rankings is secondary. The analysis shows that teams with a strong offensive and defensive balance tend to secure the best positions in the league, as they can win matches consistently and maintain a competitive edge throughout the season. Financial resources and possession metrics may enhance a team’s performance, but without effective goal-scoring and defense, they do not guarantee success. Therefore, the most crucial takeaway is that <strong>goals scored</strong> and <strong>goals conceded</strong> are the two primary factors driving a team’s ranking, with ball possession and squad market value playing more of a supporting role.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
