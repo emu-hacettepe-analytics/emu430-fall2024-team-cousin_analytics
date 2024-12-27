@@ -2,4 +2,51 @@
 title: "Data"
 ---
 
-Data source: xxx
+# The Data
+
+## What is the our data about ?
+
+Our data consists of information from the last 9 years, including the following metrics:
+
+-   **Average Ball Possession**
+
+-   **Average Shots**
+
+-   **Average Shots on Target**
+
+-   **Average Goals Scored**
+
+-   **Average Goals Conceded**
+
+-   **Squad Market Values**
+
+-   **Rankings**
+
+This dataset provides a comprehensive overview of key performance indicators and squad financial data for the past nine seasons.
+
+Data source: [Transfermarkt](https://www.transfermarkt.com.tr/), [Sofascore](#0){style="font-size: 11pt;"} and [Footystats](#0){style="font-size: 11pt;"}
+
+## **Importing and Preprocessing**
+
+Before importing the dataset, we manually cleaned it by removing unnecessary data to eliminate irrelevant information.
+
+## Merging the dataset
+
+```{r}
+# Load necessary libraries
+library(readxl)
+library(dplyr)
+
+# Define the path to your Excel file
+file_path <- "superligstats.xlsx"
+
+# Get sheet names
+sheet_names <- excel_sheets(file_path)
+
+# Read all sheets and merge them into one dataframe
+merged_data <- lapply(sheet_names, function(sheet) {
+  read_excel(file_path, sheet = sheet)
+}) %>% bind_rows()
+```
+
+[Turkish Super League Stats for top 4 teams, The period between 2015-2016 and 2023-2024](./merged_superlig_team_performance.xlsx)
