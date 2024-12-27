@@ -29,9 +29,11 @@ sidebar: false
 
 This project focuses on analyzing and visualizing building and housing characteristics in Turkey, with a particular emphasis on critical variables such as building age and height. These factors are crucial for understanding structural vulnerabilities and assessing risks, especially in light of the devastating February 6 earthquakes in Turkey. By leveraging this comprehensive dataset, the project aims to explore the relationship between these characteristics and the earthquake's impact, providing valuable insights for risk assessment, disaster preparedness, and future urban planning to enhance resilience.
 
-# Video Link
+# Video
 
-[Video Adı](https://video%20linki)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZFMJRNqOrIs?si=NvjPo8nZvmp_i_L0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
 
 # Data Set
 
