@@ -82,5 +82,26 @@
     "title": "Analysis",
     "section": "Print the correlations",
     "text": "Print the correlations\ncat(“Correlation between goals scored and rankings:”, cor_goals_scored, “”) cat(“Correlation between goals conceded and rankings:”, cor_goals_conceded, “”) cat(“Correlation between ball possession and rankings:”, cor_ball_possession, “”) cat(“Correlation between squad market values and rankings:”, cor_market_values, “”)`\n\nGoals Scored and Rankings:\n\nA strong negative correlation (-0.72) indicates that scoring more goals is strongly associated with better rankings.\n\nGoals Conceded and Rankings:\n\nA positive correlation (0.68) shows that conceding fewer goals significantly improves rankings. Defense plays a crucial role in team performance.\n\nBall Possession and Rankings:\n\nA weaker negative correlation (-0.31) suggests that ball possession has a limited impact on rankings.\n\nSquad Market Values and Rankings:\n\nA weak negative correlation (-0.26) indicates that higher squad market values are associated with better rankings, but the relationship is not strong.\n\n\n\nWhich Factor is the Most Important?\n\nThe factor with the strongest correlation (highest absolute value) has the most significant impact on rankings.\nExpected Outcome:\n\nGoals Scored: Likely to be the most important factor for better rankings.\nGoals Conceded: Defense is crucial and ranks second.\nBall Possession and Squad Market Value: These factors have a weaker impact on rankings compared to goals scored and conceded."
+  },
+  {
+    "objectID": "my_analysis.html",
+    "href": "my_analysis.html",
+    "title": "emu430-fall2024-team-cousin_analytics",
+    "section": "",
+    "text": "Click to Expand Code\n\n\n\nThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.\nWhen you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\n\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00  \n\n\n\n\n\nYou can also embed plots, for example:\n\n\n\n\n\n\n\n\n\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot."
+  },
+  {
+    "objectID": "my_analysis.html#r-markdown",
+    "href": "my_analysis.html#r-markdown",
+    "title": "emu430-fall2024-team-cousin_analytics",
+    "section": "",
+    "text": "This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.\nWhen you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:\n\nsummary(cars)\n\n     speed           dist       \n Min.   : 4.0   Min.   :  2.00  \n 1st Qu.:12.0   1st Qu.: 26.00  \n Median :15.0   Median : 36.00  \n Mean   :15.4   Mean   : 42.98  \n 3rd Qu.:19.0   3rd Qu.: 56.00  \n Max.   :25.0   Max.   :120.00"
+  },
+  {
+    "objectID": "my_analysis.html#including-plots",
+    "href": "my_analysis.html#including-plots",
+    "title": "emu430-fall2024-team-cousin_analytics",
+    "section": "",
+    "text": "You can also embed plots, for example:\n\n\n\n\n\n\n\n\n\nNote that the echo = FALSE parameter was added to the code chunk to prevent printing of the R code that generated the plot."
   }
 ]
