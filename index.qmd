@@ -37,6 +37,8 @@ This project focuses on analyzing and visualizing building and housing character
 
 # Data Set
 
+\[Building and Housing Characteristics Survey, 2021\](allthedatas.xls)
+
 # Key Takeaways
 
 -   **Building Age and Height:** Older and taller buildings, especially those built before 2000, were highly vulnerable during the February 6 earthquakes.
