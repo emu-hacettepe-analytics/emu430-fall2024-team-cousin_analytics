@@ -10,6 +10,15 @@ format:
 
 ## Average Shoots vs Goals Scored
 
+---
+title: "Exploratory Data Analysis"
+format: html
+execute:
+  echo: true
+  warning: false    # Uyarıları gizle
+  message: false    # Mesajları gizle
+---
+
 ```{r}
 # Required library
 library(ggplot2)
