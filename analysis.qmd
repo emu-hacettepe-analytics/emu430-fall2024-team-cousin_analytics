@@ -6,36 +6,36 @@ format:
     code-fold: true
 ---
 
-# Exploratory Data Analysis
-
-## Average Shoots vs Goals Scored
-
----
-title: "Exploratory Data Analysis"
-format: html
-execute:
-  echo: true
-  warning: false    # Uyarıları gizle
-  message: false    # Mesajları gizle
----
+# Data Analysis
 
 ```{r}
-# Required library
-library(ggplot2)
+# Install and load required libraries
+install.packages(c("ggplot2", "readxl", "dplyr", "knitr"))
 
-# Team-specific color palette
+# Load the libraries
+library(ggplot2)
+library(readxl)
+library(dplyr)
+library(knitr)
+
+```
+
+# Ball Possesion vs Rankings
+
+```{r}
+# Define team-specific color palette
 team_colors <- c(
   "fenerbahce" = "blue",
   "galatasaray" = "red",
-  "besiktas" = "white",
+  "besiktas" = "black",  # Updated to black
   "trabzonspor" = "maroon"
 )
 
-# Create scatter plot
+# Create scatter plot with regression line
 ggplot(df, aes(x = avg_shoots, y = avg_goals_scored, color = Team)) +
-  geom_point(size = 3) + # Data points
-  geom_smooth(method = "lm", se = FALSE) + # Regression line
-  scale_color_manual(values = team_colors) + # Team colors
+  geom_point(size = 3) +  # Data points
+  geom_smooth(method = "lm", se = FALSE) +  # Regression line
+  scale_color_manual(values = team_colors) +  # Team colors
   labs(
     title = "Relationship Between Shots and Goals",
     x = "Average Shots",
@@ -43,37 +43,7 @@ ggplot(df, aes(x = avg_shoots, y = avg_goals_scored, color = Team)) +
     color = "Team"
   ) +
   theme_minimal()
+
+# Print a message
+print("This is a scatter plot showing the relationship between shots and goals scored.")
 ```
-
-\`
-
-![](http://127.0.0.1:17181/graphics/be83dfd0-8d9c-407f-82c7-3d176e705d1c.png)
-
-## Ball Possesion vs Goals Scored
-
-```{r}
-# `ggplot2` paketini yükleyin
-library(ggplot2)
-
-# `df` veri setini yüklediğinizden ve doğru olduğunu kontrol ettiğinizden emin olun
-# Örnek veri setini kullanarak basit bir grafik yapalım
-ggplot(df, aes(x = avg_ball_possession, y = avg_goals_scored, color = Team)) +
-  geom_point(size = 5, alpha = 0.7) +  # Veri noktaları
-  geom_smooth(method = "lm", se = FALSE, linetype = "dashed", color = "black") +  # Trendline
-  scale_color_manual(values = c(
-    "fenerbahce" = "blue",
-    "galatasaray" = "red",
-    "besiktas" = "black",
-    "trabzonspor" = "maroon"
-  )) +  # Takım renkleri
-  labs(
-    title = "Relationship Between Ball Possession and Goals Scored",
-    x = "Average Ball Possession (%)",
-    y = "Average Goals Scored",
-    color = "Team"
-  ) +
-  theme_minimal()
-
-```
-
-![](http://127.0.0.1:31165/graphics/4aaedc80-29e9-4269-a939-8d7396f5a980.png)
