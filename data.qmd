@@ -1,5 +1,10 @@
 ---
-title: "Data"
+title: ""
+author: ""
+date: ""
+execute:
+  warning: false
+  message: false
 ---
 
 # The Data
@@ -26,7 +31,7 @@ This dataset provides a comprehensive overview of key performance indicators and
 
 Data source: [Transfermarkt](https://www.transfermarkt.com.tr/), [Sofascore](#0){style="font-size: 11pt;"} and [Footystats](#0){style="font-size: 11pt;"}
 
-## **Importing and Preprocessing**
+## Importing and Preprocessing
 
 Before importing the dataset, we manually cleaned it by removing unnecessary data to eliminate irrelevant information.
 
@@ -50,3 +55,9 @@ merged_data <- lapply(sheet_names, function(sheet) {
 ```
 
 [Turkish Super League Stats for top 4 teams, The period between 2015-2016 and 2023-2024](./merged_superlig_team_performance.xlsx)
+
+## Exploratory Data Analysis
+
+In our project, we are working with a dataset sourced from **Transfermarkt**, **FootyStats**, and **SofaScore**, focusing on key performance indicators in Turkey's Süper Lig from 2015 to 2024. The data includes detailed information on average ball possession, average shots, average shots on target, average goals scored, average goals conceded, squad market values, and team rankings. This comprehensive dataset allows us to analyze trends, relationships, and the impact of performance metrics and market values on team rankings over the past nine seasons.
+
+## 

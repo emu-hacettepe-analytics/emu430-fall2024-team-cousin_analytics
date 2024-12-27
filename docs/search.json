@@ -23,29 +23,36 @@
   {
     "objectID": "data.html",
     "href": "data.html",
-    "title": "Data",
+    "title": "The Data",
     "section": "",
-    "text": "Our data consists of information from the last 9 years, including the following metrics:\n\nAverage Ball Possession\nAverage Shots\nAverage Shots on Target\nAverage Goals Scored\nAverage Goals Conceded\nSquad Market Values\nRankings\n\nThis dataset provides a comprehensive overview of key performance indicators and squad financial data for the past nine seasons.\nData source: Transfermarkt, Sofascore and Footystats\n\n\n\nBefore importing the dataset, we manually cleaned it by removing unnecessary data to eliminate irrelevant information.\n\n\n\n\n# Load necessary libraries\nlibrary(readxl)\n\nWarning: package 'readxl' was built under R version 4.4.2\n\nlibrary(dplyr)\n\nWarning: package 'dplyr' was built under R version 4.4.2\n\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n# Define the path to your Excel file\nfile_path &lt;- \"superligstats.xlsx\"\n\n# Get sheet names\nsheet_names &lt;- excel_sheets(file_path)\n\n# Read all sheets and merge them into one dataframe\nmerged_data &lt;- lapply(sheet_names, function(sheet) {\n  read_excel(file_path, sheet = sheet)\n}) %&gt;% bind_rows()\n\nTurkish Super League Stats for top 4 teams, The period between 2015-2016 and 2023-2024"
+    "text": "Our data consists of information from the last 9 years, including the following metrics:\n\nAverage Ball Possession\nAverage Shots\nAverage Shots on Target\nAverage Goals Scored\nAverage Goals Conceded\nSquad Market Values\nRankings\n\nThis dataset provides a comprehensive overview of key performance indicators and squad financial data for the past nine seasons.\nData source: Transfermarkt, Sofascore and Footystats\n\n\n\nBefore importing the dataset, we manually cleaned it by removing unnecessary data to eliminate irrelevant information.\n\n\n\n\n# Load necessary libraries\nlibrary(readxl)\nlibrary(dplyr)\n\n# Define the path to your Excel file\nfile_path &lt;- \"superligstats.xlsx\"\n\n# Get sheet names\nsheet_names &lt;- excel_sheets(file_path)\n\n# Read all sheets and merge them into one dataframe\nmerged_data &lt;- lapply(sheet_names, function(sheet) {\n  read_excel(file_path, sheet = sheet)\n}) %&gt;% bind_rows()\n\nTurkish Super League Stats for top 4 teams, The period between 2015-2016 and 2023-2024\n\n\n\nIn our project, we are working with a dataset sourced from Transfermarkt, FootyStats, and SofaScore, focusing on key performance indicators in Turkey’s Süper Lig from 2015 to 2024. The data includes detailed information on average ball possession, average shots, average shots on target, average goals scored, average goals conceded, squad market values, and team rankings. This comprehensive dataset allows us to analyze trends, relationships, and the impact of performance metrics and market values on team rankings over the past nine seasons."
   },
   {
     "objectID": "data.html#what-is-the-our-data-about",
     "href": "data.html#what-is-the-our-data-about",
-    "title": "Data",
+    "title": "The Data",
     "section": "",
     "text": "Our data consists of information from the last 9 years, including the following metrics:\n\nAverage Ball Possession\nAverage Shots\nAverage Shots on Target\nAverage Goals Scored\nAverage Goals Conceded\nSquad Market Values\nRankings\n\nThis dataset provides a comprehensive overview of key performance indicators and squad financial data for the past nine seasons.\nData source: Transfermarkt, Sofascore and Footystats"
   },
   {
     "objectID": "data.html#importing-and-preprocessing",
     "href": "data.html#importing-and-preprocessing",
-    "title": "Data",
+    "title": "The Data",
     "section": "",
     "text": "Before importing the dataset, we manually cleaned it by removing unnecessary data to eliminate irrelevant information."
   },
   {
     "objectID": "data.html#merging-the-dataset",
     "href": "data.html#merging-the-dataset",
-    "title": "Data",
+    "title": "The Data",
     "section": "",
-    "text": "# Load necessary libraries\nlibrary(readxl)\n\nWarning: package 'readxl' was built under R version 4.4.2\n\nlibrary(dplyr)\n\nWarning: package 'dplyr' was built under R version 4.4.2\n\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n# Define the path to your Excel file\nfile_path &lt;- \"superligstats.xlsx\"\n\n# Get sheet names\nsheet_names &lt;- excel_sheets(file_path)\n\n# Read all sheets and merge them into one dataframe\nmerged_data &lt;- lapply(sheet_names, function(sheet) {\n  read_excel(file_path, sheet = sheet)\n}) %&gt;% bind_rows()\n\nTurkish Super League Stats for top 4 teams, The period between 2015-2016 and 2023-2024"
+    "text": "# Load necessary libraries\nlibrary(readxl)\nlibrary(dplyr)\n\n# Define the path to your Excel file\nfile_path &lt;- \"superligstats.xlsx\"\n\n# Get sheet names\nsheet_names &lt;- excel_sheets(file_path)\n\n# Read all sheets and merge them into one dataframe\nmerged_data &lt;- lapply(sheet_names, function(sheet) {\n  read_excel(file_path, sheet = sheet)\n}) %&gt;% bind_rows()\n\nTurkish Super League Stats for top 4 teams, The period between 2015-2016 and 2023-2024"
+  },
+  {
+    "objectID": "data.html#exploratory-data-analysis",
+    "href": "data.html#exploratory-data-analysis",
+    "title": "The Data",
+    "section": "",
+    "text": "In our project, we are working with a dataset sourced from Transfermarkt, FootyStats, and SofaScore, focusing on key performance indicators in Turkey’s Süper Lig from 2015 to 2024. The data includes detailed information on average ball possession, average shots, average shots on target, average goals scored, average goals conceded, squad market values, and team rankings. This comprehensive dataset allows us to analyze trends, relationships, and the impact of performance metrics and market values on team rankings over the past nine seasons."
   }
 ]
