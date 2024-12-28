@@ -40,7 +40,7 @@ This project analyzes how key performance indicators—such as average shots, av
 
 # Data Set
 
-[Turkish Super League Stats for top 4 teams, The period between 2015-2016 and 2023-2024](./superligstats.xlsx),,
+[Turkish Super League Stats for top 4 teams, The period between 2015-2016 and 2023-2024](./superligstats.xlsx)
 
 # Key Takeaways
 
