@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Team XXX",
+    "title": "Team Cousin Analytics",
     "section": "",
-    "text": "This is our project webpage.\nPlease stay tuned to follow our project activities.\nThis is our template.\n\nTeam Members\n\nEdin_Džeko\nDušan Tadić\nFrederico Rodrigues de Paula Santos\nSebastian Szymański\n\n\n\nProject Topic\n\n\nData Set\n\n\n\n\n Back to top"
+    "text": "This is our project webpage.\nPlease stay tuned to follow our project activities.\nThis is our template.\n\n\nTeam Members\n\nEmir Gök\nVehbi Enis Üçer\nBerk Bayar\nMustafa Melih Dağ\nUlaş Utku Bedel\n\n\n\nOur Project\nTitle: Analysis of Key Performance Indicators and Squad Market Values Impacting Rankings in Turkey’s Süper Lig: A Focus on Shooting Accuracy, Possession, and Goals (2015-2024)\nDescription:\nThis project analyzes how key performance indicators—such as average shots, average shots on target, average ball possession, average goals scored, average goals conceded, squad market values, and team rankings—have influenced the performance of Turkey’s top football teams in the Süper Lig over the past 9 seasons (2015-2024). The study examines the relationships between offensive and defensive metrics, market value of players, and their direct impact on league rankings. By incorporating squad market values, the project explores how a team’s financial strength and player quality contribute to overall success. Key visualizations, including trend analysis, bar chart races, and correlation graphs, illustrate the effect of these variables on team performance. The analysis aims to uncover patterns of success, identify underperforming areas, and provide actionable insights into the factors most strongly determining a team’s position in the league standings.\n\n\nVideo\n\n\n\n\n\nData Set\nTurkish Super League Stats for top 4 teams, The period between 2015-2016 and 2023-2024,,\n\n\nKey Takeaways\n\nMost Important Factors: Goals scored and goals conceded are the most important factors for determining rankings. A strong attacking ability (scoring goals) combined with a solid defense (conceding fewer goals) are the key to maintaining or improving a team’s league position.\nSecondary Factors: Ball possession and squad market value have a secondary role. While they contribute to team performance, they do not directly drive rankings as effectively as offensive and defensive performance. Possession might help control the tempo of a game, and squad market value can aid in acquiring top talent, but these factors are less directly linked to achieving top rankings in the league.\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "about.html",
@@ -18,13 +18,69 @@
     "href": "analysis.html",
     "title": "Analysis",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top"
+    "text": "Code\nlibrary(ggplot2)\nlibrary(car)\nlibrary(ggrepel)\nlibrary(readxl)\n\n\n\n\nCode\n# Read data from the Excel file\ndataset &lt;- read_excel(\"C:/Users/Emir/OneDrive/Desktop/dataset.xlsx\")\n\n# Select the necessary columns for the plot\ndf &lt;- data.frame(\n  avg_goals_conceded = dataset$avg_goals_conceded,\n  avg_ball_possession = dataset$avg_ball_possession,\n  rankings = dataset$rankings,\n  avg_shoots = dataset$avg_shoots,\n  avg_shoots_on_target = dataset$avg_shoots_on_target,\n  avg_goals_scored = dataset$avg_goals_scored,\n  squad_market_values = dataset$squad_market_values,\n  rankings = dataset$rankings,\n  Season = dataset$Season,\n  Team = dataset$Team\n)\n\n# Define team colors\nteam_colors &lt;- c(\n  \"fenerbahce\" = \"blue\",\n  \"galatasaray\" = \"red\",\n  \"besiktas\" = \"black\",\n  \"trabzonspor\" = \"maroon\"\n)\n\n# Create the plot\nggplot(df, aes(x = avg_goals_conceded, y = rankings, color = Team)) +\n  geom_point(size = 3) +\n  scale_color_manual(values = team_colors) +\n  scale_y_reverse() +\n  labs(\n    title = \"Relationship Between Average Goals Conceded and League Rankings\",\n    x = \"Average Goals Conceded\",\n    y = \"League Ranking (Reversed)\",\n    color = \"Team\"\n  ) +\n  theme_minimal()"
   },
   {
     "objectID": "data.html",
     "href": "data.html",
     "title": "Data",
     "section": "",
-    "text": "Data source: xxx\n\n\n\n Back to top"
+    "text": "Our data consists of information from the last 9 years, including the following metrics:\n\nAverage Ball Possession\nAverage Shots\nAverage Shots on Target\nAverage Goals Scored\nAverage Goals Conceded\nSquad Market Values\nRankings\n\nThis dataset provides a comprehensive overview of key performance indicators and squad financial data for the past nine seasons.\nData source: Transfermarkt, Sofascore and Footystats\n\n\n\nBefore importing the dataset, we manually cleaned it by removing unnecessary data to eliminate irrelevant information.\n\n\n\n\n\nCode\nlibrary(readxl)\nlibrary(dplyr)\n\n\n\n\nCode\n# Load necessary libraries\n\n\n# Define the path to your Excel file\nfile_path &lt;- \"superligstats.xlsx\"\n\n# Get sheet names\nsheet_names &lt;- excel_sheets(file_path)\n\n# Read all sheets and merge them into one dataframe\nmerged_data &lt;- lapply(sheet_names, function(sheet) {\n  read_excel(file_path, sheet = sheet)\n}) %&gt;% bind_rows()\n\n\nMerged Turkish Super League Stats for top 4 teams, The period between 2015-2016 and 2023-2024\n\n\n\nIn our project, we are working with a dataset sourced from Transfermarkt, FootyStats, and SofaScore, focusing on key performance indicators in Turkey’s Süper Lig from 2015 to 2024. The data includes detailed information on average ball possession, average shots, average shots on target, average goals scored, average goals conceded, squad market values, and team rankings. This comprehensive dataset allows us to analyze trends, relationships, and the impact of performance metrics and market values on team rankings over the past nine seasons."
+  },
+  {
+    "objectID": "analysis.html#correlation-between-ball-possession-and-rankings",
+    "href": "analysis.html#correlation-between-ball-possession-and-rankings",
+    "title": "Analysis",
+    "section": "Correlation between ball possession and rankings",
+    "text": "Correlation between ball possession and rankings\n\n\nCode\ncorrelation_possession_rankings &lt;- cor(df$avg_ball_possession, df$rankings, use = \"complete.obs\")\n\ncat(sprintf(\n  \"The correlation between average ball possession and league rankings is %.2f.\\n\", \n  correlation_possession_rankings\n))\n\n\nThe correlation between average ball possession and league rankings is -0.32.\n\n\nCorrelation between ball possession and rankings: -0.317401286701104\nThe negative value indicates that as the ball possession percentage increases, the ranking improves (lower numerical values represent better rankings). This suggests that higher ball possession is associated with better league performance, but the relationship is not very strong. Weak Correlation:\nA correlation value of -0.3174 shows a weak relationship between the two variables. Ball possession alone does not significantly determine league rankings. Conclusion:\nWhile ball possession plays a role in improving rankings, other factors such as goals scored, goals conceded, and defensive or offensive efficiency likely have a stronger influence on the overall_performance.\nSummary:\n\nNegative Correlation (-0.3174): Higher ball possession is linked to better rankings, but the relationship is weak.\nWeak Influence: Ball possession alone has limited impact on rankings compared to factors like goals scored and conceded.\nConclusion: Ball possession contributes to performance but is less significant than other metrics."
+  },
+  {
+    "objectID": "analysis.html#squad-market-values-impact-on-rankings",
+    "href": "analysis.html#squad-market-values-impact-on-rankings",
+    "title": "Analysis",
+    "section": "Squad Market Values impact on Rankings",
+    "text": "Squad Market Values impact on Rankings\n\n\nCode\n# Örnek veri çerçevesi (kendi verilerinizle değiştirebilirsiniz)\n\n# İlk 10 sıralama ile filtreleme\nfiltered_df &lt;- df[df$rankings &lt;= 10, ]\n\n# Grafik oluşturma\nggplot(filtered_df, aes(x = Season, y = rankings, size = squad_market_values, color = Team)) +\n  geom_point(alpha = 0.7) +  # Bubble chart\n  geom_text_repel(aes(label = Team), size = 3) +  # Prevent overlapping labels\n  scale_y_reverse(breaks = 1:10) +  # Reverse y-axis and set breaks from 1 to 10\n  scale_size_continuous(range = c(3, 10), name = \"Squad Market Value (€)\") +  # Adjust bubble size\n  scale_color_manual(values = c(\n    \"fenerbahce\" = \"blue\",\n    \"galatasaray\" = \"red\",\n    \"besiktas\" = \"black\",\n    \"trabzonspor\" = \"maroon\",\n    \"basaksehir\" = \"orange\"\n  )) +  # Custom team colors\n  labs(\n    title = \"Seasonal League Rankings and Squad Market Values (Top 10)\",\n    x = \"Season\",\n    y = \"League Ranking (Reversed)\",\n    size = \"Squad Market Value (€)\",\n    color = \"Team\"\n  ) +\n  theme_minimal() +\n  theme(\n    axis.text.x = element_text(angle = 45, hjust = 1),  # Rotate x-axis labels for readability\n    aspect.ratio = 0.7  # Adjust aspect ratio\n  )"
+  },
+  {
+    "objectID": "analysis.html#correlation-between-squad-market-value-and-rankings",
+    "href": "analysis.html#correlation-between-squad-market-value-and-rankings",
+    "title": "Analysis",
+    "section": "Correlation between Squad Market Value and Rankings",
+    "text": "Correlation between Squad Market Value and Rankings\n\n\nCode\ncorrelation_market_values_rankings &lt;- cor(df$squad_market_values, df$rankings, use = \"complete.obs\")\n\nprint(paste(\"Correlation between squad market values and rankings:\", correlation_market_values_rankings))\n\n\n[1] \"Correlation between squad market values and rankings: -0.258059534138834\"\n\n\nThe correlation between squad market values and rankings is -0.2581, indicating a weak negative correlation. As squad market values increase, rankings tend to improve, but the relationship is not strong.\nWhile higher squad market values are linked to better performance, other factors like team strategy, player performance, and injuries are likely more significant. This also aligns with Johan Cruyff’s quote: “I’ve never seen a bag of money score a goal.” This suggests that while financial resources can support success, they do not guarantee it without proper execution on the field."
+  },
+  {
+    "objectID": "analysis.html#print-the-correlations",
+    "href": "analysis.html#print-the-correlations",
+    "title": "Analysis",
+    "section": "Print the correlations",
+    "text": "Print the correlations\n\n\nCode\ncat(\"Correlation between goals scored and rankings:\", cor_goals_scored, \"\\n\") \n\n\nCorrelation between goals scored and rankings: -0.7267469 \n\n\nCode\ncat(\"Correlation between goals conceded and rankings:\", cor_goals_conceded, \"\\n\") \n\n\nCorrelation between goals conceded and rankings: 0.6880453 \n\n\nCode\ncat(\"Correlation between ball possession and rankings:\", cor_ball_possession, \"\\n\") \n\n\nCorrelation between ball possession and rankings: -0.3174013 \n\n\nCode\ncat(\"Correlation between squad market values and rankings:\", cor_market_values, \"\\n\")\n\n\nCorrelation between squad market values and rankings: -0.2580595 \n\n\n\nGoals Scored and Rankings:\n\nA strong negative correlation (-0.72) indicates that scoring more goals is strongly associated with better rankings.\n\nGoals Conceded and Rankings:\n\nA positive correlation (0.68) shows that conceding fewer goals significantly improves rankings. Defense plays a crucial role in team performance.\n\nBall Possession and Rankings:\n\nA weaker negative correlation (-0.31) suggests that ball possession has a limited impact on rankings.\n\nSquad Market Values and Rankings:\n\nA weak negative correlation (-0.26) indicates that higher squad market values are associated with better rankings, but the relationship is not strong.\n\n\n\nWhich Factor is the Most Important?\n\nThe factor with the strongest correlation (highest absolute value) has the most significant impact on rankings.\nExpected Outcome:\n\nGoals Scored: Likely to be the most important factor for better rankings.\nGoals Conceded: Defense is crucial and ranks second.\nBall Possession and Squad Market Value: These factors have a weaker impact on rankings compared to goals scored and conceded."
+  },
+  {
+    "objectID": "data.html#what-is-the-our-data-about",
+    "href": "data.html#what-is-the-our-data-about",
+    "title": "Data",
+    "section": "",
+    "text": "Our data consists of information from the last 9 years, including the following metrics:\n\nAverage Ball Possession\nAverage Shots\nAverage Shots on Target\nAverage Goals Scored\nAverage Goals Conceded\nSquad Market Values\nRankings\n\nThis dataset provides a comprehensive overview of key performance indicators and squad financial data for the past nine seasons.\nData source: Transfermarkt, Sofascore and Footystats"
+  },
+  {
+    "objectID": "data.html#importing-and-preprocessing",
+    "href": "data.html#importing-and-preprocessing",
+    "title": "Data",
+    "section": "",
+    "text": "Before importing the dataset, we manually cleaned it by removing unnecessary data to eliminate irrelevant information."
+  },
+  {
+    "objectID": "data.html#merging-the-dataset",
+    "href": "data.html#merging-the-dataset",
+    "title": "Data",
+    "section": "",
+    "text": "Code\nlibrary(readxl)\nlibrary(dplyr)\n\n\n\n\nCode\n# Load necessary libraries\n\n\n# Define the path to your Excel file\nfile_path &lt;- \"superligstats.xlsx\"\n\n# Get sheet names\nsheet_names &lt;- excel_sheets(file_path)\n\n# Read all sheets and merge them into one dataframe\nmerged_data &lt;- lapply(sheet_names, function(sheet) {\n  read_excel(file_path, sheet = sheet)\n}) %&gt;% bind_rows()\n\n\nMerged Turkish Super League Stats for top 4 teams, The period between 2015-2016 and 2023-2024"
+  },
+  {
+    "objectID": "data.html#exploratory-data-analysis",
+    "href": "data.html#exploratory-data-analysis",
+    "title": "Data",
+    "section": "",
+    "text": "In our project, we are working with a dataset sourced from Transfermarkt, FootyStats, and SofaScore, focusing on key performance indicators in Turkey’s Süper Lig from 2015 to 2024. The data includes detailed information on average ball possession, average shots, average shots on target, average goals scored, average goals conceded, squad market values, and team rankings. This comprehensive dataset allows us to analyze trends, relationships, and the impact of performance metrics and market values on team rankings over the past nine seasons."
   }
 ]
